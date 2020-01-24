@@ -1,0 +1,99 @@
+﻿@*@model IEnumerable<thfmsemi.Models.Register>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Titlename)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Firstname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lastname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Position)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateRegister)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateChk)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ClassroomDay1.ClassroomDay1_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ClassroomDay2.ClassroomDay2_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Login.l_Firstname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StatusPay.StatusPay_Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Titlename)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Firstname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lastname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Position)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateRegister)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateChk)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClassroomDay1.ClassroomDay1_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClassroomDay2.ClassroomDay2_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Login.l_Firstname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StatusPay.StatusPay_Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Register_Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Register_Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Register_Id })
+        </td>
+    </tr>
+}
+
+</table>*@

@@ -1,0 +1,270 @@
+﻿@model IEnumerable<thfmsemi.Models.Report>
+
+@{
+    ViewBag.Title = "Ckeck";
+}
+
+<h2>ตรวจสอบสถานะการสมัครเข้าร่วมสัมมนา</h2>
+@using (Html.BeginForm("Index", "Reports", FormMethod.Get))
+{
+    <table>
+        <tr>
+            <th>&nbsp;</th>
+            <th>
+                @Html.TextBox("_SearchString", ViewBag.CurrentFilter as string, new { @class = "form-control" })
+            </th>
+            <th>
+                &nbsp;&nbsp;<input type="submit" value="ค้นหา" class="btn btn-success" />
+            </th>
+        </tr>
+    </table>
+    <table>
+        <tr style="font-family:FreesiaUPC; font-size:20px"><td><font color="red">* สามารถใช้ข้อมูล ชื่อผู้สมัคร / นามสกุล / E-mail / เบอร์โทรศัพท์ ที่ใช้ลงทะเบียน ค้นหารายละเอียดได้</font></td></tr>
+    </table>
+}
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@<br /><br />
+</p>
+<div class="table-responsive">
+    <table border="1" style="background-color:dodgerblue; font-family:FreesiaUPC;font-size:20px">
+        <tr>
+            <th>
+                &nbsp;เลขที่ใบสมัคร
+            </th>
+            <th>
+                &nbsp;คำนำหน้าชื่อ
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Firstname)*@&nbsp;ชื่อผู้สมัคร
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Lastname)*@&nbsp;นามสกุลผู้สมัคร
+            </th>
+            @*<th>
+               @Html.DisplayNameFor(model => model.Position)ตำแหน่ง
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>*@
+            @*<th>
+                @Html.DisplayNameFor(model => model.Phone)เบอร์โทรศัพท์
+            </th>*@
+            <th>
+                @*@Html.DisplayNameFor(model => model.ClassroomDay1_Name)*@&nbsp;สำรองที่นั่งวันที่ 1
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.ClassroomDay2_Name)*@&nbsp;สำรองที่นั่งวันที่ 2
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.DateRegister)*@&nbsp;วันที่สมัคร
+            </th>
+            <th>&nbsp;หักภาษี ณ ที่จ่าย</th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Price)*@&nbsp;ชำระเงินจริง
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.CompanyType_Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CompanyName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Contact_Firstname)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Contact_Lastname)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Tel)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fax)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Tex)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Rate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Address_1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Township_1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Amphoe_1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Province_1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ZipCode_1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AddressSend)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TownshipSend)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AmphoeSend)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProvinceSend)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ZipCodeSend)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BillType_Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.l_Firstname)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.l_Lastname)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.l_Email)
+                </th>*@
+                <th>
+                    @*@Html.DisplayNameFor(model => model.StatusPay_Name)*@สถานะ
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr class="bg-info">
+                    <td>
+                        &nbsp;@Html.DisplayFor(modelItem => item.Register_Id)
+                    </td>
+                    <td>
+                        &nbsp;@Html.DisplayFor(modelItem => item.Titlename)
+                    </td>
+                    <td>
+                        &nbsp;@Html.DisplayFor(modelItem => item.Firstname)
+                    </td>
+                    <td>
+                        &nbsp;@Html.DisplayFor(modelItem => item.Lastname)
+                    </td>
+                    @*<td>
+                        @Html.DisplayFor(modelItem => item.Position)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Phone)
+                    </td>*@
+                    <td>
+                        &nbsp;@Html.DisplayFor(modelItem => item.ClassroomDay1_Name)
+                    </td>
+                    <td>
+                        &nbsp;@Html.DisplayFor(modelItem => item.ClassroomDay2_Name)
+                    </td>
+                    <td>
+                        &nbsp;@Html.DisplayFor(modelItem => item.DateRegister)
+                    </td>
+                    <td class="text-center">
+                        &nbsp;@Html.DisplayFor(modelItem => item.Rate) %
+                    </td>
+                    <td class="text-right">
+                        &nbsp;@Html.DisplayFor(modelItem => item.Price) บาท&nbsp;
+                    </td>
+                    @*<td>
+                        @Html.DisplayFor(modelItem => item.CompanyType_Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CompanyName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Contact_Firstname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Contact_Lastname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Tel)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fax)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Tex)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Rate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address_1)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Township_1)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Amphoe_1)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Province_1)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ZipCode_1)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AddressSend)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TownshipSend)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AmphoeSend)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProvinceSend)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ZipCodeSend)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BillType_Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.l_Firstname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.l_Lastname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.l_Email)
+                    </td>*@
+                    <td>
+                        &nbsp;@Html.DisplayFor(modelItem => item.StatusPay_Name)&nbsp;
+                    </td>
+                    @*<td>
+                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    </td>*@
+                </tr>
+            }
+
+        </table>
+    @*<br />
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of
+    @Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("Report",
+    new
+    {
+        page,
+        sortOrder = ViewBag.CurrentSort,
+        currentFilter = ViewBag.CurrentFilter
+    }))*@
+    </div>
+
+<div class="table-responsive">
+    <br />
+    <p style="text-align: left;"><img src="~/img/sl0.JPG" /></p>
+    <p style="text-align: left;"><img src="~/img/sl.JPG" /></p>
+</div>

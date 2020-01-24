@@ -1,0 +1,193 @@
+﻿@model thfmsemi.Models.Register
+
+@{
+    ViewBag.Title = "Register";
+}
+@if (Session["Email"] != null)
+{
+    <br />
+    <h4>สวัสดีค่ะ คุณ <font color="green"><b>@Session["FirstName"].ToString() @Session["LastName"].ToString()</b></font> </h4>
+    <h4>@*Welcame @Session["UserID"].ToString()*@</h4>
+}
+<h2>ระบบลงทะเบียนผู้เข้าร่วมสัมมนา</h2>
+<div class="table-responsive">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            <h4>The 2<sup>nd</sup> Thailand Healthcare Facility Management Excellence Seminar</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        </div>
+        if (ViewBag.Error != null)
+        {
+            <h2><font color="Red">@ViewBag.Error</font></h2>
+        }
+        int count = 0;
+        <div border="0" cellpadding="0" cellspacing="0" style="border-color:white" class="table-responsive">
+            <table border="0" cellpadding="0" cellspacing="0" class="table table-responsive bg btn-group-vertical">
+                <tr style="border-color:white">
+                    <th style="border-color:white">@Html.Label("เพิ่มรายชื่อผู้เข้าร่วมสัมมนา")</th>
+                    <th style="border-color:white"></th>
+                    <th style="border-color:white">@Html.EditorFor(model => model.DateRegister, new { htmlAttributes = new { @class = "", Value = System.DateTime.Now.ToString(@"yyyy\/MM\/dd hh:mm:ss tt"), @readonly = "readonly" } })</th>
+                    <th style="border-color:white">@Html.ValidationMessageFor(model => model.DateRegister, "", new { @class = "text-danger" })</th>
+                </tr>
+                <tr>
+                    <th>คำนำหน้าชื่อ</th>
+                    <th>ชื่อ</th>
+                    <th>นามสกุล</th>
+                </tr>
+                <tr>
+                    <td style="border-color:white">@Html.EditorFor(model => model.Titlename, new { htmlAttributes = new { @class = "form-control", maxlength = "50" } })</td>
+                    <td style="border-color:white">@Html.EditorFor(model => model.Firstname, new { htmlAttributes = new { @class = "form-control", maxlength = "50" } })</td>
+                    <td style="border-color:white">@Html.EditorFor(model => model.Lastname, new { htmlAttributes = new { @class = "form-control", maxlength = "50" } })</td>
+                </tr>
+                <tr>
+                    <td style="border-color:white">@Html.ValidationMessageFor(model => model.Titlename, "", new { @class = "text-danger" })</td>
+                    <td style="border-color:white">@Html.ValidationMessageFor(model => model.Firstname, "", new { @class = "text-danger" })</td>
+                    <td style="border-color:white">@Html.ValidationMessageFor(model => model.Lastname, "", new { @class = "text-danger" })</td>
+                </tr>
+
+                <tr style="border-color:white">
+                    <th>ตำแหน่ง</th>
+                    <th>อีเมล์</th>
+                    <th>เบอร์โทรศัพท์</th>
+                </tr>
+                <tr style="border-color:white">
+                    <td style="border-color:white">@Html.EditorFor(model => model.Position, new { htmlAttributes = new { @class = "form-control", maxlength = "50" } })</td>
+                    <td style="border-color:white">@Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", maxlength = "50" } })</td>
+                    <td style="border-color:white">@Html.EditorFor(model => model.Tel, new { htmlAttributes = new { @class = "form-control", onkeypress = "validate(event)", maxlength = "12" } })</td>
+                </tr>
+                <tr style="border-color:white">
+                    <td style="border-color:white">@Html.ValidationMessageFor(model => model.Position, "", new { @class = "text-danger" })</td>
+                    <td style="border-color:white">@Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })</td>
+                    <td style="border-color:white">@Html.ValidationMessageFor(model => model.Tel, "", new { @class = "text-danger" })</td>
+                </tr>
+                <tr style="border-color:white">
+                    <td style="border-color:white"><a href="http://www.thfmseminar.com/index/schedule" target="_blank">รายละเอียดกำหนดการ</a></td>
+                </tr>
+                <tr style="border-color:white">
+                    <th>สำรองที่นั่งช่วงบ่ายวันที่ 17 พ.ย.59</th>
+                    <th>สำรองที่นั่งช่วงบ่ายวันที่ 18 พ.ย.59</th>
+                    <th></th>
+                </tr>
+                <tr style="border-color:white">
+                    <td style="border-color:white">@Html.DropDownList("ClassroomDay1_Id", null, htmlAttributes: new { @class = "form-control" })</td>
+                    <td style="border-color:white">@Html.DropDownList("ClassroomDay2_Id", null, htmlAttributes: new { @class = "form-control" })</td>
+                </tr>
+                <tr style="border-color:white">
+                    <td style="border-color:white">@Html.ValidationMessageFor(model => model.ClassroomDay1_Id, "", new { @class = "text-danger" })</td>
+                    <td style="border-color:white">@Html.ValidationMessageFor(model => model.ClassroomDay2_Id, "", new { @class = "text-danger" })</td>
+                    <td style="border-color:white"></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="เพิ่มรายชื่อผู้เข้าร่วมสัมมนา" class="btn btn-primary" /></td>
+                    <td><input name="b2" value="ยืนยันรายชื่อผู้สมัครทั้งหมด" onclick="location.href='@Url.Action("Create", "Bills")';" class="btn btn-success"></td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <b><font color="red">* กรุณากดปุ่ม "เพิ่มรายชื่อผู้เข้าร่วมสัมมนา" (สามารถเพิ่มได้หลายท่าน)</font></b><br />
+            <b><font color="red">ก่อนกดปุ่ม "ยืนยันรายชื่อผู้สมัครทั้งหมด" ตรวจสอบรายชื่อผู้เข้าร่วมสัมมนาได้ที่ตารางด้านล่าง</font></b>
+        </div>
+
+
+        @*@Html.ActionLink("Next", "Create", "Bills")*@
+
+    }
+    <b><br />รายชื่อผู้เข้าร่วมสัมมนา</b>
+    <table class="table table-responsive">
+        <tr class="label-info">
+            <th>
+                @*@Html.DisplayNameFor(model => model.Titlename)*@คำนำหน้าชื่อ
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Fristname)*@ชื่อ
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Lastname)*@นามสกุล
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Position)*@ตำแหน่ง
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Email)*@อีเมล์
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Tel)*@เบอร์โทรศัพท์
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.ClassroomDay1.ClassroomDay1_Name)*@สำรองที่นั่งวันที่ 1
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.ClassroomDay2.ClassroomDay2_Name)*@สำรองที่นั่งวันที่ 2
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.StatusPay.StatusPay_Name)*@สถานะ
+            </th>
+            <th>ลบข้อมูล</th>
+        </tr>
+        @foreach (var item in (IEnumerable<thfmsemi.Models.Register>)ViewBag.Name)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Titlename)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Firstname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Lastname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Position)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClassroomDay1.ClassroomDay1_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClassroomDay2.ClassroomDay2_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StatusPay.StatusPay_Name)
+                </td>
+                <td>
+                    @if (item.StatusPay.StatusPay_Name == " ")
+                    {
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Register_Id })
+                    }
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div>
+        <p><br /></p>
+        <p style="text-align: left;"><br /><img src="~/img/sl0.JPG" /></p>
+        <p style="text-align: left;"><img src="~/img/sl.JPG" /></p>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<script>
+    {
+        function validate(evt) {
+            var theEvent = evt || window.event;
+            var key = theEvent.keyCode || theEvent.which;
+            key = String.fromCharCode(key);
+            var regex = /[0-9]|\./;
+            if (!regex.test(key)) {
+                theEvent.returnValue = false;
+                if (theEvent.preventDefault) theEvent.preventDefault();
+            }
+        }
+    }
+</script>
+

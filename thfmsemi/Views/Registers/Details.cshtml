@@ -1,0 +1,114 @@
+﻿@*@model thfmsemi.Models.Register
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Register</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Titlename)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Titlename)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Firstname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Firstname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lastname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lastname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Position)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Position)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateRegister)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateRegister)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateChk)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateChk)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClassroomDay1.ClassroomDay1_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClassroomDay1.ClassroomDay1_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClassroomDay2.ClassroomDay2_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClassroomDay2.ClassroomDay2_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Login.l_Firstname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Login.l_Firstname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StatusPay.StatusPay_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StatusPay.StatusPay_Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Register_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>*@

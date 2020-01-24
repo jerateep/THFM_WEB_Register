@@ -1,0 +1,846 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="THFM2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bills">
+          <Key>
+            <PropertyRef Name="Bill_Id" />
+          </Key>
+          <Property Name="Bill_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyType_Id" Type="int" />
+          <Property Name="CompanyName" Type="varchar" MaxLength="100" />
+          <Property Name="Contact_Firstname" Type="varchar" MaxLength="100" />
+          <Property Name="Contact_Lastname" Type="varchar" MaxLength="100" />
+          <Property Name="Tel" Type="varchar" MaxLength="20" />
+          <Property Name="Fax" Type="varchar" MaxLength="20" />
+          <Property Name="Tex" Type="varchar" MaxLength="13" />
+          <Property Name="Rate" Type="int" />
+          <Property Name="Price" Type="varchar" MaxLength="100" />
+          <Property Name="Address_1" Type="varchar" MaxLength="100" />
+          <Property Name="Township_1" Type="varchar" MaxLength="100" />
+          <Property Name="Amphoe_1" Type="varchar" MaxLength="100" />
+          <Property Name="Province_1" Type="varchar" MaxLength="100" />
+          <Property Name="ZipCode_1" Type="varchar" MaxLength="10" />
+          <Property Name="AddressSend" Type="varchar" MaxLength="100" />
+          <Property Name="TownshipSend" Type="varchar" MaxLength="100" />
+          <Property Name="AmphoeSend" Type="varchar" MaxLength="100" />
+          <Property Name="ProvinceSend" Type="varchar" MaxLength="100" />
+          <Property Name="ZipCodeSend" Type="varchar" MaxLength="10" />
+          <Property Name="BillType_Id" Type="int" />
+          <Property Name="Register_Id" Type="int" />
+          <Property Name="Login_Id" Type="int" />
+          <Property Name="chk" Type="int" />
+        </EntityType>
+        <EntityType Name="BillType">
+          <Key>
+            <PropertyRef Name="BillType_Id" />
+          </Key>
+          <Property Name="BillType_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BillType_Name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ClassroomDay1">
+          <Key>
+            <PropertyRef Name="ClassroomDay1_Id" />
+          </Key>
+          <Property Name="ClassroomDay1_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClassroomDay1_Name" Type="varchar" MaxLength="50" />
+          <Property Name="StatusDay1" Type="int" />
+        </EntityType>
+        <EntityType Name="ClassroomDay2">
+          <Key>
+            <PropertyRef Name="ClassroomDay2_Id" />
+          </Key>
+          <Property Name="ClassroomDay2_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClassroomDay2_Name" Type="varchar" MaxLength="50" />
+          <Property Name="StatusDay2" Type="int" />
+        </EntityType>
+        <EntityType Name="CompanyType">
+          <Key>
+            <PropertyRef Name="CompanyType_Id" />
+          </Key>
+          <Property Name="CompanyType_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyType_Name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="Login_Id" />
+          </Key>
+          <Property Name="Login_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="l_Firstname" Type="varchar" MaxLength="50" />
+          <Property Name="l_Lastname" Type="varchar" MaxLength="50" />
+          <Property Name="l_Email" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="ConfirmPassword" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Rate">
+          <Key>
+            <PropertyRef Name="Rate" />
+          </Key>
+          <Property Name="Rate" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Register">
+          <Key>
+            <PropertyRef Name="Register_Id" />
+          </Key>
+          <Property Name="Register_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Titlename" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Firstname" Type="varchar" MaxLength="50" />
+          <Property Name="Lastname" Type="varchar" MaxLength="50" />
+          <Property Name="Position" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Tel" Type="varchar" MaxLength="50" />
+          <Property Name="ClassroomDay1_Id" Type="int" />
+          <Property Name="ClassroomDay2_Id" Type="int" />
+          <Property Name="StatusPay_Id" Type="int" />
+          <Property Name="DateRegister" Type="datetime2" Precision="7" />
+          <Property Name="DateChk" Type="datetime2" Precision="7" />
+          <Property Name="Login_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="StatusPay">
+          <Key>
+            <PropertyRef Name="StatusPay_Id" />
+          </Key>
+          <Property Name="StatusPay_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StatusPay_Name" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'THFM2.dbo.Report' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Report">
+          <Key>
+            <PropertyRef Name="Register_Id" />
+            <PropertyRef Name="Titlename" />
+          </Key>
+          <Property Name="Register_Id" Type="int" Nullable="false" />
+          <Property Name="Titlename" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Firstname" Type="varchar" MaxLength="50" />
+          <Property Name="Lastname" Type="varchar" MaxLength="50" />
+          <Property Name="Position" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Phone" Type="varchar" MaxLength="50" />
+          <Property Name="ClassroomDay1_Name" Type="varchar" MaxLength="50" />
+          <Property Name="ClassroomDay2_Name" Type="varchar" MaxLength="50" />
+          <Property Name="DateRegister" Type="datetime2" Precision="7" />
+          <Property Name="CompanyType_Name" Type="varchar" MaxLength="50" />
+          <Property Name="CompanyName" Type="varchar" MaxLength="100" />
+          <Property Name="Contact_Firstname" Type="varchar" MaxLength="100" />
+          <Property Name="Contact_Lastname" Type="varchar" MaxLength="100" />
+          <Property Name="Tel" Type="varchar" MaxLength="20" />
+          <Property Name="Fax" Type="varchar" MaxLength="20" />
+          <Property Name="Tex" Type="varchar" MaxLength="13" />
+          <Property Name="Rate" Type="int" />
+          <Property Name="Price" Type="varchar" MaxLength="100" />
+          <Property Name="Address_1" Type="varchar" MaxLength="100" />
+          <Property Name="Township_1" Type="varchar" MaxLength="100" />
+          <Property Name="Amphoe_1" Type="varchar" MaxLength="100" />
+          <Property Name="Province_1" Type="varchar" MaxLength="100" />
+          <Property Name="ZipCode_1" Type="varchar" MaxLength="10" />
+          <Property Name="AddressSend" Type="varchar" MaxLength="100" />
+          <Property Name="TownshipSend" Type="varchar" MaxLength="100" />
+          <Property Name="AmphoeSend" Type="varchar" MaxLength="100" />
+          <Property Name="ProvinceSend" Type="varchar" MaxLength="100" />
+          <Property Name="ZipCodeSend" Type="varchar" MaxLength="10" />
+          <Property Name="BillType_Name" Type="varchar" MaxLength="50" />
+          <Property Name="l_Firstname" Type="varchar" MaxLength="50" />
+          <Property Name="l_Lastname" Type="varchar" MaxLength="50" />
+          <Property Name="l_Email" Type="varchar" MaxLength="50" />
+          <Property Name="StatusPay_Name" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="FK__Bills__BillType___123EB7A3">
+          <End Role="BillType" Type="Self.BillType" Multiplicity="0..1" />
+          <End Role="Bills" Type="Self.Bills" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BillType">
+              <PropertyRef Name="BillType_Id" />
+            </Principal>
+            <Dependent Role="Bills">
+              <PropertyRef Name="BillType_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Bills__CompanyTy__1332DBDC">
+          <End Role="CompanyType" Type="Self.CompanyType" Multiplicity="0..1" />
+          <End Role="Bills" Type="Self.Bills" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompanyType">
+              <PropertyRef Name="CompanyType_Id" />
+            </Principal>
+            <Dependent Role="Bills">
+              <PropertyRef Name="CompanyType_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Bills__Login_Id__14270015">
+          <End Role="Login" Type="Self.Login" Multiplicity="0..1" />
+          <End Role="Bills" Type="Self.Bills" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Login">
+              <PropertyRef Name="Login_Id" />
+            </Principal>
+            <Dependent Role="Bills">
+              <PropertyRef Name="Login_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Bills__Rate__151B244E">
+          <End Role="Rate" Type="Self.Rate" Multiplicity="0..1" />
+          <End Role="Bills" Type="Self.Bills" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rate">
+              <PropertyRef Name="Rate" />
+            </Principal>
+            <Dependent Role="Bills">
+              <PropertyRef Name="Rate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Bills__Register___160F4887">
+          <End Role="Register" Type="Self.Register" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Bills" Type="Self.Bills" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Register">
+              <PropertyRef Name="Register_Id" />
+            </Principal>
+            <Dependent Role="Bills">
+              <PropertyRef Name="Register_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Register__Classr__17036CC0">
+          <End Role="ClassroomDay1" Type="Self.ClassroomDay1" Multiplicity="0..1" />
+          <End Role="Register" Type="Self.Register" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClassroomDay1">
+              <PropertyRef Name="ClassroomDay1_Id" />
+            </Principal>
+            <Dependent Role="Register">
+              <PropertyRef Name="ClassroomDay1_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Register__Classr__17F790F9">
+          <End Role="ClassroomDay2" Type="Self.ClassroomDay2" Multiplicity="0..1" />
+          <End Role="Register" Type="Self.Register" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClassroomDay2">
+              <PropertyRef Name="ClassroomDay2_Id" />
+            </Principal>
+            <Dependent Role="Register">
+              <PropertyRef Name="ClassroomDay2_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Register__Login___18EBB532">
+          <End Role="Login" Type="Self.Login" Multiplicity="0..1" />
+          <End Role="Register" Type="Self.Register" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Login">
+              <PropertyRef Name="Login_Id" />
+            </Principal>
+            <Dependent Role="Register">
+              <PropertyRef Name="Login_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Register__Status__19DFD96B">
+          <End Role="StatusPay" Type="Self.StatusPay" Multiplicity="0..1" />
+          <End Role="Register" Type="Self.Register" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusPay">
+              <PropertyRef Name="StatusPay_Id" />
+            </Principal>
+            <Dependent Role="Register">
+              <PropertyRef Name="StatusPay_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="THFM2ModelStoreContainer">
+          <EntitySet Name="Bills" EntityType="Self.Bills" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BillType" EntityType="Self.BillType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClassroomDay1" EntityType="Self.ClassroomDay1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClassroomDay2" EntityType="Self.ClassroomDay2" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CompanyType" EntityType="Self.CompanyType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rate" EntityType="Self.Rate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Register" EntityType="Self.Register" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StatusPay" EntityType="Self.StatusPay" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Report" EntityType="Self.Report" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Report].[Register_Id] AS [Register_Id], 
+    [Report].[Titlename] AS [Titlename], 
+    [Report].[Firstname] AS [Firstname], 
+    [Report].[Lastname] AS [Lastname], 
+    [Report].[Position] AS [Position], 
+    [Report].[Email] AS [Email], 
+    [Report].[Phone] AS [Phone], 
+    [Report].[ClassroomDay1_Name] AS [ClassroomDay1_Name], 
+    [Report].[ClassroomDay2_Name] AS [ClassroomDay2_Name], 
+    [Report].[DateRegister] AS [DateRegister], 
+    [Report].[CompanyType_Name] AS [CompanyType_Name], 
+    [Report].[CompanyName] AS [CompanyName], 
+    [Report].[Contact_Firstname] AS [Contact_Firstname], 
+    [Report].[Contact_Lastname] AS [Contact_Lastname], 
+    [Report].[Tel] AS [Tel], 
+    [Report].[Fax] AS [Fax], 
+    [Report].[Tex] AS [Tex], 
+    [Report].[Rate] AS [Rate], 
+    [Report].[Price] AS [Price], 
+    [Report].[Address_1] AS [Address_1], 
+    [Report].[Township_1] AS [Township_1], 
+    [Report].[Amphoe_1] AS [Amphoe_1], 
+    [Report].[Province_1] AS [Province_1], 
+    [Report].[ZipCode_1] AS [ZipCode_1], 
+    [Report].[AddressSend] AS [AddressSend], 
+    [Report].[TownshipSend] AS [TownshipSend], 
+    [Report].[AmphoeSend] AS [AmphoeSend], 
+    [Report].[ProvinceSend] AS [ProvinceSend], 
+    [Report].[ZipCodeSend] AS [ZipCodeSend], 
+    [Report].[BillType_Name] AS [BillType_Name], 
+    [Report].[l_Firstname] AS [l_Firstname], 
+    [Report].[l_Lastname] AS [l_Lastname], 
+    [Report].[l_Email] AS [l_Email], 
+    [Report].[StatusPay_Name] AS [StatusPay_Name]
+    FROM [dbo].[Report] AS [Report]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__Bills__BillType___123EB7A3" Association="Self.FK__Bills__BillType___123EB7A3">
+            <End Role="BillType" EntitySet="BillType" />
+            <End Role="Bills" EntitySet="Bills" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Bills__CompanyTy__1332DBDC" Association="Self.FK__Bills__CompanyTy__1332DBDC">
+            <End Role="CompanyType" EntitySet="CompanyType" />
+            <End Role="Bills" EntitySet="Bills" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Bills__Login_Id__14270015" Association="Self.FK__Bills__Login_Id__14270015">
+            <End Role="Login" EntitySet="Login" />
+            <End Role="Bills" EntitySet="Bills" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Bills__Rate__151B244E" Association="Self.FK__Bills__Rate__151B244E">
+            <End Role="Rate" EntitySet="Rate" />
+            <End Role="Bills" EntitySet="Bills" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Bills__Register___160F4887" Association="Self.FK__Bills__Register___160F4887">
+            <End Role="Register" EntitySet="Register" />
+            <End Role="Bills" EntitySet="Bills" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Register__Classr__17036CC0" Association="Self.FK__Register__Classr__17036CC0">
+            <End Role="ClassroomDay1" EntitySet="ClassroomDay1" />
+            <End Role="Register" EntitySet="Register" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Register__Classr__17F790F9" Association="Self.FK__Register__Classr__17F790F9">
+            <End Role="ClassroomDay2" EntitySet="ClassroomDay2" />
+            <End Role="Register" EntitySet="Register" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Register__Login___18EBB532" Association="Self.FK__Register__Login___18EBB532">
+            <End Role="Login" EntitySet="Login" />
+            <End Role="Register" EntitySet="Register" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Register__Status__19DFD96B" Association="Self.FK__Register__Status__19DFD96B">
+            <End Role="StatusPay" EntitySet="StatusPay" />
+            <End Role="Register" EntitySet="Register" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="THFM2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BillType">
+          <Key>
+            <PropertyRef Name="BillType_Id" />
+          </Key>
+          <Property Name="BillType_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BillType_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Bills" Relationship="THFM2Model.FK__Bills__BillType___03F0984C" FromRole="BillType" ToRole="Bill" />
+        </EntityType>
+        <EntityType Name="ClassroomDay1">
+          <Key>
+            <PropertyRef Name="ClassroomDay1_Id" />
+          </Key>
+          <Property Name="ClassroomDay1_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClassroomDay1_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StatusDay1" Type="Int32" />
+          <NavigationProperty Name="Registers" Relationship="Self.FK__Register__Classr__5CD6CB2B" FromRole="ClassroomDay1" ToRole="Register" />
+        </EntityType>
+        <EntityType Name="ClassroomDay2">
+          <Key>
+            <PropertyRef Name="ClassroomDay2_Id" />
+          </Key>
+          <Property Name="ClassroomDay2_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClassroomDay2_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StatusDay2" Type="Int32" />
+          <NavigationProperty Name="Registers" Relationship="Self.FK__Register__Classr__5DCAEF64" FromRole="ClassroomDay2" ToRole="Register" />
+        </EntityType>
+        <EntityType Name="CompanyType">
+          <Key>
+            <PropertyRef Name="CompanyType_Id" />
+          </Key>
+          <Property Name="CompanyType_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyType_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Bills" Relationship="THFM2Model.FK__Bills__CompanyTy__02FC7413" FromRole="CompanyType" ToRole="Bill" />
+        </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="Login_Id" />
+          </Key>
+          <Property Name="Login_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="l_Firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="l_Lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="l_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ConfirmPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Registers" Relationship="Self.FK__Register__Login___5629CD9C" FromRole="Login" ToRole="Register" />
+          <NavigationProperty Name="Bills" Relationship="THFM2Model.FK__Bills__Login_Id__06CD04F7" FromRole="Login" ToRole="Bill" />
+        </EntityType>
+        <EntityType Name="Register">
+          <Key>
+            <PropertyRef Name="Register_Id" />
+          </Key>
+          <Property Name="Register_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Titlename" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Position" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ClassroomDay1_Id" Type="Int32" />
+          <Property Name="ClassroomDay2_Id" Type="Int32" />
+          <Property Name="StatusPay_Id" Type="Int32" />
+          <Property Name="DateRegister" Type="DateTime" Precision="7" />
+          <Property Name="DateChk" Type="DateTime" Precision="7" />
+          <Property Name="Login_Id" Type="Int32" />
+          <NavigationProperty Name="ClassroomDay1" Relationship="Self.FK__Register__Classr__5CD6CB2B" FromRole="Register" ToRole="ClassroomDay1" />
+          <NavigationProperty Name="ClassroomDay2" Relationship="Self.FK__Register__Classr__5DCAEF64" FromRole="Register" ToRole="ClassroomDay2" />
+          <NavigationProperty Name="Login" Relationship="Self.FK__Register__Login___5629CD9C" FromRole="Register" ToRole="Login" />
+          <NavigationProperty Name="StatusPay" Relationship="Self.FK__Register__Status__6383C8BA" FromRole="Register" ToRole="StatusPay" />
+          <NavigationProperty Name="Bills" Relationship="THFM2Model.FK__Bills__Register___05D8E0BE" FromRole="Register" ToRole="Bill" />
+        </EntityType>
+        <EntityType Name="StatusPay">
+          <Key>
+            <PropertyRef Name="StatusPay_Id" />
+          </Key>
+          <Property Name="StatusPay_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StatusPay_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Registers" Relationship="Self.FK__Register__Status__6383C8BA" FromRole="StatusPay" ToRole="Register" />
+        </EntityType>
+        <Association Name="FK__Register__Classr__5CD6CB2B">
+          <End Role="ClassroomDay1" Type="Self.ClassroomDay1" Multiplicity="0..1" />
+          <End Role="Register" Type="Self.Register" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClassroomDay1">
+              <PropertyRef Name="ClassroomDay1_Id" />
+            </Principal>
+            <Dependent Role="Register">
+              <PropertyRef Name="ClassroomDay1_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Register__Classr__5DCAEF64">
+          <End Role="ClassroomDay2" Type="Self.ClassroomDay2" Multiplicity="0..1" />
+          <End Role="Register" Type="Self.Register" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClassroomDay2">
+              <PropertyRef Name="ClassroomDay2_Id" />
+            </Principal>
+            <Dependent Role="Register">
+              <PropertyRef Name="ClassroomDay2_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Register__Login___5629CD9C">
+          <End Role="Login" Type="Self.Login" Multiplicity="0..1" />
+          <End Role="Register" Type="Self.Register" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Login">
+              <PropertyRef Name="Login_Id" />
+            </Principal>
+            <Dependent Role="Register">
+              <PropertyRef Name="Login_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Register__Status__6383C8BA">
+          <End Role="StatusPay" Type="Self.StatusPay" Multiplicity="0..1" />
+          <End Role="Register" Type="Self.Register" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusPay">
+              <PropertyRef Name="StatusPay_Id" />
+            </Principal>
+            <Dependent Role="Register">
+              <PropertyRef Name="StatusPay_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BillTypes" EntityType="Self.BillType" />
+          <EntitySet Name="ClassroomDay1" EntityType="Self.ClassroomDay1" />
+          <EntitySet Name="ClassroomDay2" EntityType="Self.ClassroomDay2" />
+          <EntitySet Name="CompanyTypes" EntityType="Self.CompanyType" />
+          <EntitySet Name="Logins" EntityType="Self.Login" />
+          <EntitySet Name="Registers" EntityType="Self.Register" />
+          <EntitySet Name="StatusPays" EntityType="Self.StatusPay" />
+          <AssociationSet Name="FK__Register__Classr__5CD6CB2B" Association="Self.FK__Register__Classr__5CD6CB2B">
+            <End Role="ClassroomDay1" EntitySet="ClassroomDay1" />
+            <End Role="Register" EntitySet="Registers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Register__Classr__5DCAEF64" Association="Self.FK__Register__Classr__5DCAEF64">
+            <End Role="ClassroomDay2" EntitySet="ClassroomDay2" />
+            <End Role="Register" EntitySet="Registers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Register__Login___5629CD9C" Association="Self.FK__Register__Login___5629CD9C">
+            <End Role="Login" EntitySet="Logins" />
+            <End Role="Register" EntitySet="Registers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Register__Status__6383C8BA" Association="Self.FK__Register__Status__6383C8BA">
+            <End Role="StatusPay" EntitySet="StatusPays" />
+            <End Role="Register" EntitySet="Registers" />
+          </AssociationSet>
+          <EntitySet Name="Bills" EntityType="THFM2Model.Bill" />
+          <EntitySet Name="Rates" EntityType="THFM2Model.Rate" />
+          <AssociationSet Name="FK__Bills__BillType___03F0984C" Association="THFM2Model.FK__Bills__BillType___03F0984C">
+            <End Role="BillType" EntitySet="BillTypes" />
+            <End Role="Bill" EntitySet="Bills" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Bills__CompanyTy__02FC7413" Association="THFM2Model.FK__Bills__CompanyTy__02FC7413">
+            <End Role="CompanyType" EntitySet="CompanyTypes" />
+            <End Role="Bill" EntitySet="Bills" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Bills__Login_Id__06CD04F7" Association="THFM2Model.FK__Bills__Login_Id__06CD04F7">
+            <End Role="Login" EntitySet="Logins" />
+            <End Role="Bill" EntitySet="Bills" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Bills__Rate__160F4887" Association="THFM2Model.FK__Bills__Rate__160F4887">
+            <End Role="Rate" EntitySet="Rates" />
+            <End Role="Bill" EntitySet="Bills" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Bills__Register___05D8E0BE" Association="THFM2Model.FK__Bills__Register___05D8E0BE">
+            <End Role="Register" EntitySet="Registers" />
+            <End Role="Bill" EntitySet="Bills" />
+          </AssociationSet>
+          <EntitySet Name="Reports" EntityType="THFM2Model.Report" />
+          </EntityContainer>
+        <EntityType Name="Bill">
+          <Key>
+            <PropertyRef Name="Bill_Id" />
+          </Key>
+          <Property Name="Bill_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyType_Id" Type="Int32" />
+          <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Contact_Firstname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Contact_Lastname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Tel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Fax" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Tex" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="Rate" Type="Int32" />
+          <Property Name="Price" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Address_1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Township_1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Amphoe_1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Province_1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ZipCode_1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="AddressSend" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TownshipSend" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AmphoeSend" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ProvinceSend" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ZipCodeSend" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="BillType_Id" Type="Int32" />
+          <Property Name="Register_Id" Type="Int32" />
+          <Property Name="Login_Id" Type="Int32" />
+          <Property Name="chk" Type="Int32" />
+          <NavigationProperty Name="BillType" Relationship="THFM2Model.FK__Bills__BillType___03F0984C" FromRole="Bill" ToRole="BillType" />
+          <NavigationProperty Name="CompanyType" Relationship="THFM2Model.FK__Bills__CompanyTy__02FC7413" FromRole="Bill" ToRole="CompanyType" />
+          <NavigationProperty Name="Login" Relationship="THFM2Model.FK__Bills__Login_Id__06CD04F7" FromRole="Bill" ToRole="Login" />
+          <NavigationProperty Name="Rate1" Relationship="THFM2Model.FK__Bills__Rate__160F4887" FromRole="Bill" ToRole="Rate" />
+          <NavigationProperty Name="Register" Relationship="THFM2Model.FK__Bills__Register___05D8E0BE" FromRole="Bill" ToRole="Register" />
+        </EntityType>
+        <EntityType Name="Rate">
+          <Key>
+            <PropertyRef Name="Rate1" />
+          </Key>
+          <Property Name="Rate1" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Bills" Relationship="THFM2Model.FK__Bills__Rate__160F4887" FromRole="Rate" ToRole="Bill" />
+        </EntityType>
+        <Association Name="FK__Bills__BillType___03F0984C">
+          <End Type="THFM2Model.BillType" Role="BillType" Multiplicity="0..1" />
+          <End Type="THFM2Model.Bill" Role="Bill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BillType">
+              <PropertyRef Name="BillType_Id" />
+            </Principal>
+            <Dependent Role="Bill">
+              <PropertyRef Name="BillType_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Bills__CompanyTy__02FC7413">
+          <End Type="THFM2Model.CompanyType" Role="CompanyType" Multiplicity="0..1" />
+          <End Type="THFM2Model.Bill" Role="Bill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompanyType">
+              <PropertyRef Name="CompanyType_Id" />
+            </Principal>
+            <Dependent Role="Bill">
+              <PropertyRef Name="CompanyType_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Bills__Login_Id__06CD04F7">
+          <End Type="THFM2Model.Login" Role="Login" Multiplicity="0..1" />
+          <End Type="THFM2Model.Bill" Role="Bill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Login">
+              <PropertyRef Name="Login_Id" />
+            </Principal>
+            <Dependent Role="Bill">
+              <PropertyRef Name="Login_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Bills__Rate__160F4887">
+          <End Type="THFM2Model.Rate" Role="Rate" Multiplicity="0..1" />
+          <End Type="THFM2Model.Bill" Role="Bill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rate">
+              <PropertyRef Name="Rate1" />
+            </Principal>
+            <Dependent Role="Bill">
+              <PropertyRef Name="Rate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Bills__Register___05D8E0BE">
+          <End Type="THFM2Model.Register" Role="Register" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="THFM2Model.Bill" Role="Bill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Register">
+              <PropertyRef Name="Register_Id" />
+            </Principal>
+            <Dependent Role="Bill">
+              <PropertyRef Name="Register_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Report">
+          <Key>
+            <PropertyRef Name="Register_Id" />
+            <PropertyRef Name="Titlename" />
+          </Key>
+          <Property Name="Register_Id" Type="Int32" Nullable="false" />
+          <Property Name="Titlename" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Position" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ClassroomDay1_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ClassroomDay2_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateRegister" Type="DateTime" Precision="7" />
+          <Property Name="CompanyType_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Contact_Firstname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Contact_Lastname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Tel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Fax" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Tex" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="Rate" Type="Int32" />
+          <Property Name="Price" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Address_1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Township_1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Amphoe_1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Province_1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ZipCode_1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="AddressSend" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TownshipSend" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AmphoeSend" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ProvinceSend" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ZipCodeSend" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="BillType_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="l_Firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="l_Lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="l_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StatusPay_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="THFM2ModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="BillTypes">
+            <EntityTypeMapping TypeName="THFM2Model.BillType">
+              <MappingFragment StoreEntitySet="BillType">
+                <ScalarProperty Name="BillType_Id" ColumnName="BillType_Id" />
+                <ScalarProperty Name="BillType_Name" ColumnName="BillType_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClassroomDay1">
+            <EntityTypeMapping TypeName="THFM2Model.ClassroomDay1">
+              <MappingFragment StoreEntitySet="ClassroomDay1">
+                <ScalarProperty Name="ClassroomDay1_Id" ColumnName="ClassroomDay1_Id" />
+                <ScalarProperty Name="ClassroomDay1_Name" ColumnName="ClassroomDay1_Name" />
+                <ScalarProperty Name="StatusDay1" ColumnName="StatusDay1" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClassroomDay2">
+            <EntityTypeMapping TypeName="THFM2Model.ClassroomDay2">
+              <MappingFragment StoreEntitySet="ClassroomDay2">
+                <ScalarProperty Name="ClassroomDay2_Id" ColumnName="ClassroomDay2_Id" />
+                <ScalarProperty Name="ClassroomDay2_Name" ColumnName="ClassroomDay2_Name" />
+                <ScalarProperty Name="StatusDay2" ColumnName="StatusDay2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompanyTypes">
+            <EntityTypeMapping TypeName="THFM2Model.CompanyType">
+              <MappingFragment StoreEntitySet="CompanyType">
+                <ScalarProperty Name="CompanyType_Id" ColumnName="CompanyType_Id" />
+                <ScalarProperty Name="CompanyType_Name" ColumnName="CompanyType_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logins">
+            <EntityTypeMapping TypeName="THFM2Model.Login">
+              <MappingFragment StoreEntitySet="Login">
+                <ScalarProperty Name="Login_Id" ColumnName="Login_Id" />
+                <ScalarProperty Name="l_Firstname" ColumnName="l_Firstname" />
+                <ScalarProperty Name="l_Lastname" ColumnName="l_Lastname" />
+                <ScalarProperty Name="l_Email" ColumnName="l_Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="ConfirmPassword" ColumnName="ConfirmPassword" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Registers">
+            <EntityTypeMapping TypeName="THFM2Model.Register">
+              <MappingFragment StoreEntitySet="Register">
+                <ScalarProperty Name="Register_Id" ColumnName="Register_Id" />
+                <ScalarProperty Name="Titlename" ColumnName="Titlename" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="ClassroomDay1_Id" ColumnName="ClassroomDay1_Id" />
+                <ScalarProperty Name="ClassroomDay2_Id" ColumnName="ClassroomDay2_Id" />
+                <ScalarProperty Name="StatusPay_Id" ColumnName="StatusPay_Id" />
+                <ScalarProperty Name="DateRegister" ColumnName="DateRegister" />
+                <ScalarProperty Name="DateChk" ColumnName="DateChk" />
+                <ScalarProperty Name="Login_Id" ColumnName="Login_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StatusPays">
+            <EntityTypeMapping TypeName="THFM2Model.StatusPay">
+              <MappingFragment StoreEntitySet="StatusPay">
+                <ScalarProperty Name="StatusPay_Id" ColumnName="StatusPay_Id" />
+                <ScalarProperty Name="StatusPay_Name" ColumnName="StatusPay_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bills">
+            <EntityTypeMapping TypeName="THFM2Model.Bill">
+              <MappingFragment StoreEntitySet="Bills">
+                <ScalarProperty Name="chk" ColumnName="chk" />
+                <ScalarProperty Name="Login_Id" ColumnName="Login_Id" />
+                <ScalarProperty Name="Register_Id" ColumnName="Register_Id" />
+                <ScalarProperty Name="BillType_Id" ColumnName="BillType_Id" />
+                <ScalarProperty Name="ZipCodeSend" ColumnName="ZipCodeSend" />
+                <ScalarProperty Name="ProvinceSend" ColumnName="ProvinceSend" />
+                <ScalarProperty Name="AmphoeSend" ColumnName="AmphoeSend" />
+                <ScalarProperty Name="TownshipSend" ColumnName="TownshipSend" />
+                <ScalarProperty Name="AddressSend" ColumnName="AddressSend" />
+                <ScalarProperty Name="ZipCode_1" ColumnName="ZipCode_1" />
+                <ScalarProperty Name="Province_1" ColumnName="Province_1" />
+                <ScalarProperty Name="Amphoe_1" ColumnName="Amphoe_1" />
+                <ScalarProperty Name="Township_1" ColumnName="Township_1" />
+                <ScalarProperty Name="Address_1" ColumnName="Address_1" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="Tex" ColumnName="Tex" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Contact_Lastname" ColumnName="Contact_Lastname" />
+                <ScalarProperty Name="Contact_Firstname" ColumnName="Contact_Firstname" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="CompanyType_Id" ColumnName="CompanyType_Id" />
+                <ScalarProperty Name="Bill_Id" ColumnName="Bill_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rates">
+            <EntityTypeMapping TypeName="THFM2Model.Rate">
+              <MappingFragment StoreEntitySet="Rate">
+                <ScalarProperty Name="Rate1" ColumnName="Rate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reports">
+            <EntityTypeMapping TypeName="THFM2Model.Report">
+              <MappingFragment StoreEntitySet="Report">
+                <ScalarProperty Name="StatusPay_Name" ColumnName="StatusPay_Name" />
+                <ScalarProperty Name="l_Email" ColumnName="l_Email" />
+                <ScalarProperty Name="l_Lastname" ColumnName="l_Lastname" />
+                <ScalarProperty Name="l_Firstname" ColumnName="l_Firstname" />
+                <ScalarProperty Name="BillType_Name" ColumnName="BillType_Name" />
+                <ScalarProperty Name="ZipCodeSend" ColumnName="ZipCodeSend" />
+                <ScalarProperty Name="ProvinceSend" ColumnName="ProvinceSend" />
+                <ScalarProperty Name="AmphoeSend" ColumnName="AmphoeSend" />
+                <ScalarProperty Name="TownshipSend" ColumnName="TownshipSend" />
+                <ScalarProperty Name="AddressSend" ColumnName="AddressSend" />
+                <ScalarProperty Name="ZipCode_1" ColumnName="ZipCode_1" />
+                <ScalarProperty Name="Province_1" ColumnName="Province_1" />
+                <ScalarProperty Name="Amphoe_1" ColumnName="Amphoe_1" />
+                <ScalarProperty Name="Township_1" ColumnName="Township_1" />
+                <ScalarProperty Name="Address_1" ColumnName="Address_1" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="Tex" ColumnName="Tex" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Contact_Lastname" ColumnName="Contact_Lastname" />
+                <ScalarProperty Name="Contact_Firstname" ColumnName="Contact_Firstname" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="CompanyType_Name" ColumnName="CompanyType_Name" />
+                <ScalarProperty Name="DateRegister" ColumnName="DateRegister" />
+                <ScalarProperty Name="ClassroomDay2_Name" ColumnName="ClassroomDay2_Name" />
+                <ScalarProperty Name="ClassroomDay1_Name" ColumnName="ClassroomDay1_Name" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Titlename" ColumnName="Titlename" />
+                <ScalarProperty Name="Register_Id" ColumnName="Register_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

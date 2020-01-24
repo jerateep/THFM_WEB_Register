@@ -1,0 +1,194 @@
+﻿@model thfmsemi.Models.Bill
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Bill</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Contact_Firstname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contact_Firstname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Contact_Lastname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contact_Lastname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tex)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tex)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address_1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address_1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Township_1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Township_1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Amphoe_1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Amphoe_1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Province_1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Province_1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZipCode_1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZipCode_1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AddressSend)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AddressSend)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TownshipSend)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TownshipSend)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AmphoeSend)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AmphoeSend)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProvinceSend)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProvinceSend)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZipCodeSend)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZipCodeSend)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BillType.BillType_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BillType.BillType_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyType.CompanyType_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyType.CompanyType_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Login.l_Firstname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Login.l_Firstname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rate1.Rate1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rate1.Rate1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Register.Titlename)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Register.Titlename)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Bill_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,159 @@
+﻿@model IEnumerable<thfmsemi.Models.Bill>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CompanyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contact_Firstname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contact_Lastname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fax)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tex)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address_1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Township_1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Amphoe_1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Province_1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ZipCode_1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AddressSend)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TownshipSend)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AmphoeSend)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProvinceSend)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ZipCodeSend)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BillType.BillType_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompanyType.CompanyType_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Login.l_Firstname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rate1.Rate1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Register.Titlename)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompanyName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Contact_Firstname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Contact_Lastname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fax)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tex)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address_1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Township_1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Amphoe_1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Province_1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ZipCode_1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AddressSend)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TownshipSend)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AmphoeSend)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProvinceSend)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ZipCodeSend)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BillType.BillType_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompanyType.CompanyType_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Login.l_Firstname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rate1.Rate1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Register.Titlename)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Bill_Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Bill_Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Bill_Id })
+        </td>
+    </tr>
+}
+
+</table>

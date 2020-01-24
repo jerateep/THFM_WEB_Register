@@ -1,0 +1,120 @@
+﻿@model thfmsemi.Models.Register
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>@*Delete*@</h2>
+
+<h3>ต้องการลบข้อมูลผู้สมัครหรื่อไม่ ?</h3>
+<div>
+    <h4>@*Register*@</h4>
+    <hr />
+    @*<dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Titlename)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Titlename)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Firstname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Firstname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lastname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lastname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Position)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Position)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateRegister)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateRegister)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateChk)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateChk)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClassroomDay1.ClassroomDay1_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClassroomDay1.ClassroomDay1_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClassroomDay2.ClassroomDay2_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClassroomDay2.ClassroomDay2_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Login.l_Firstname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Login.l_Firstname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StatusPay.StatusPay_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StatusPay.StatusPay_Name)
+        </dd>
+
+    </dl>*@
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="ลบข้อมูลผู้สมัคร" class="btn btn-danger" /> |
+            @Html.ActionLink("ย้อนกลับ", "Create")
+        </div>
+    }
+</div>

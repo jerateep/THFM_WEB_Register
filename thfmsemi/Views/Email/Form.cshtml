@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Forgot Password";
+}
+<h1><br /></h1>
+@if (ViewBag.Error != null)
+{
+    <h2><font color="Red">@ViewBag.Error</font></h2>
+}
+@if (ViewBag.Pass != null)
+{
+    <h2><font color="Green">@ViewBag.Pass</font></h2>
+}
+<div class="container">
+    <form method="post" action="Form">
+        <span class="form-control-static">กรอก อีเมล์ :</span>
+        <br />
+        <br />
+        <input class="form-control" type="text" name="ReceiverEmail" />
+        <br />
+        <button type="submit" class="btn btn-success">ส่งรหัสผ่าน</button>
+    </form>
+</div>
