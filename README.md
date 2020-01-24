@@ -1,4 +1,4 @@
-# TThe 2nd Thailand Healthcare Facility Management Excellence Seminar WEB Register
+# The 2nd Thailand Healthcare Facility Management Excellence Seminar WEB Register
 ASP.NET MVC c# <br>
 EF6 SQL Server
 
