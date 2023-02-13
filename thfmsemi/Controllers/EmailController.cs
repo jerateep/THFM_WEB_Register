@@ -29,16 +29,16 @@ namespace thfmsemi.Controllers
                                     select i.Password).First();
                     if (ModelState.IsValid)
                     {
-                        var senderEmail = new MailAddress("jerateep.s@rfs.co.th", " Admin THFM");
+                        var senderEmail = new MailAddress("", " Admin THFM");
                         var receiverEmail = new MailAddress(ReceiverEmail, "Receiver");
 
-                        var password = "C1e43bcpoic";
+                        var password = "";
                         //var sub = Subject;
                         var body = "Username : " + receiverEmail.Address + "\n" +
                                    "Password : " + MailPass;
                         var smtp = new SmtpClient
                         {
-                            Host = "mail.rfs.co.th",
+                            Host = "",
                             Port = 587,
                             //EnableSsl = true,
                             //DeliveryMethod = SmtpDeliveryMethod.Network,
